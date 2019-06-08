@@ -10,7 +10,7 @@ npm install @saber2pr/yield
 git clone https://github.com/Saber2pr/yield.git
 ```
 
-## view
+## Example
 
 ```ts
 const delay = (time: number) =>
