@@ -17,25 +17,25 @@ export default class Yield<T, F extends Generator<T>> {
 
   private readonly interceptors: Array<(value: T) => T> = []
 
-  private reset = (...param: T[]) => {
+  private reset = (param: T[]) => {
     this.current = this.itQueue.shift()(...param)
   }
 
-  private next = (...param: T[]) => {
+  private next = (param: T[]) => {
     const result = this.current.next(...param)
 
     if (result.done && this.itQueue.length) {
-      this.reset(...param)
-      return this.next(...param)
+      this.reset(param)
+      return this.next(param)
     }
 
     return result
   }
 
   public exec(...param: GetParamsType<F>): Promise<T> {
-    this.current || this.reset(...param)
+    this.current || this.reset(param)
 
-    const result = this.next(...param)
+    const result = this.next(param)
 
     const value = this.interceptors.reduce((v, i) => i(v), result.value)
 
