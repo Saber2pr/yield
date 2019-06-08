@@ -1,0 +1,23 @@
+{
+  "name": "@saber2pr/yield",
+  "version": "0.0.1",
+  "description": "> 组合 Generator, 拦截 yield.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saber2pr/yield.git"
+  },
+  "author": "saber2pr",
+  "license": "ISC",
+  "files": [
+    "lib/core/*",
+    "lib/index.*"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "node ./lib/test/test.js",
+    "start": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^3.4.3"
+  }
+}
