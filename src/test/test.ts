@@ -9,7 +9,7 @@ function* main(v: number, a: number) {
 
   yield delay(1000)
 
-  return yield 2
+  yield 2
 }
 
 function* main2(v) {
@@ -19,7 +19,7 @@ function* main2(v) {
 
   yield delay(1000)
 
-  return yield 4
+  yield 4
 }
 
 Yield(main, main2)

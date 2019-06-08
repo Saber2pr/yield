@@ -1,7 +1,7 @@
 import Y, { Generator } from './core'
 
-export default function Yield<T, F extends Generator<T>>(
-  ...it: [F, ...Array<Generator<T>>]
+export default function Yield<F extends Generator<any>>(
+  ...it: [F, ...Array<Generator<any>>]
 ) {
-  return new Y<T, F>(...it)
+  return new Y<any, F>(...it)
 }
