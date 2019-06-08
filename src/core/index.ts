@@ -32,7 +32,7 @@ export default class Yield<T, F extends Generator<T>> {
     return result
   }
 
-  public exec = (...param: GetParamsType<F>): Promise<T> => {
+  public exec(...param: GetParamsType<F>): Promise<T> {
     this.current || this.reset(...param)
 
     const result = this.next(...param)
@@ -44,7 +44,7 @@ export default class Yield<T, F extends Generator<T>> {
     return Promise.resolve(value).then(p => this.exec.call(this, p))
   }
 
-  public use = (interceptor: (value: T) => T) => {
+  public use(interceptor: (value: T) => T) {
     this.interceptors.push(interceptor)
     return this
   }
